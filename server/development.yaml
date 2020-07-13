@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  app:
+    build:
+     context: .
+     dockerfile: ./dockerfiles/development.dockerfile
+    environment:
+      API_PORT: 4100
+      MONGO_HOST: db
+      MONGO_PORT: 27017
+      DB_NAME: blog
+      JWT_SECRET: 64HIHC10RGW%GJ<
+    networks:
+      - blog-network
+    depends_on:
+      - db
+    ports:
+      - '4100:4100'
+    volumes:
+      - .:/usr/src/app/
+      - /usr/src/app/node_modules
+  db:
+    image: mongo
+    # networks:
+    #   - blog-network
+networks:
+  blog-network:
+    external: true

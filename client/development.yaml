@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/development.dockerfile
+    environment:
+      PORT: 3100
+      NODE_ENV: development
+      API: http://localhost:4100
+      API_GQL: http://localhost:4100/graphql
+      HOST: http://localhost:3100/graphql
+    networks:
+      - frontend
+    ports:
+      - "3100:3100"
+    volumes:
+      - .:/usr/src/app/
+      - /usr/src/app/node_modules
+networks:
+  frontend:
+    driver: bridge
