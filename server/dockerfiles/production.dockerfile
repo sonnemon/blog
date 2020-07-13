@@ -3,13 +3,14 @@ FROM node:10
 # Setting working directory
 WORKDIR /usr/src/app
 
-# Installing dependencies
-COPY ./server/package*.json ./
-RUN npm install
 
 # Copying source files
+COPY ./server/package.json ./package.json
+COPY ./server/webpack.config.js ./webpack.config.js
 COPY ./server/src ./src
-# COPY ./public ./public
+
+# Installing dependencies
+RUN npm install
 
 # Building app
 RUN npm run build
