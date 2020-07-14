@@ -8,9 +8,9 @@ services:
     environment:
       PORT: 3100
       NODE_ENV: production
-      API: http://apiblog.sonnemon.quanticotrends.com
-      SERVER_API_GQL: http://apiblog.sonnemon.quanticotrends.com/graphql
-      BROWSER_API_GQL: http://apiblog.sonnemon.quanticotrends.com/graphql
+      API: http://apiblog.sonnemon.com
+      SERVER_API_GQL: http://apiblog.sonnemon.com/graphql
+      BROWSER_API_GQL: http://apiblog.sonnemon.com/graphql
       HOST: http://blog.sonnemon.com
     ports:
       - 3100:3100
