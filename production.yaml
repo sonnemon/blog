@@ -31,4 +31,4 @@ services:
   db:
     image: mongo
     volumes:
-      - "./data:/data/db"
+      - "/root/data:/data/db"
