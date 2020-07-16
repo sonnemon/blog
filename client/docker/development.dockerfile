@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 COPY ./client/package*.json ./
 COPY ./client/src ./src
 COPY ./client/public ./public
+COPY ./client/.env ./.env
 
 # Installing dependencies
 RUN npm install
