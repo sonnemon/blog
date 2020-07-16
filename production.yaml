@@ -4,14 +4,10 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: ./client/docker/production.dockerfile
+      dockerfile: ./client/Dockerfile
     environment:
       PORT: 3100
       NODE_ENV: production
-      API: http://apiblog.sonnemon.com
-      SERVER_API_GQL: http://apiblog.sonnemon.com/graphql
-      BROWSER_API_GQL: http://apiblog.sonnemon.com/graphql
-      HOST: http://blog.sonnemon.com
     ports:
       - 3100:3100
     links:
@@ -19,7 +15,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./server/dockerfiles/production.dockerfile
+      dockerfile: ./server/Dockerfile
     environment:
       API_PORT: 4100
       MONGO_HOST: db

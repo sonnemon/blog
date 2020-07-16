@@ -1,7 +1,7 @@
-import axios from 'axios';
-import config from '../config';
+import axios from "axios";
+import config from "../config";
 export async function createPost(variables, authToken) {
-	const gql = `
+  const gql = `
     mutation CreatePostMutation(
       $input:postInput
     ){
@@ -17,29 +17,29 @@ export async function createPost(variables, authToken) {
       }
     }
   `;
-	try {
-		const { data } = await axios.post(
-			config.endpoint,
-			{
-				query: gql,
-				variables
-			},
-			{
-				headers: {
-					Authorization: `Bearer ${authToken}`,
-					'Content-Type': 'application/json'
-				}
-			}
-		);
-		return data.data.createPost;
-	} catch (error) {
-		console.log(error);
-		return null;
-	}
+  try {
+    const { data } = await axios.post(
+      `${config.api}/graphql`,
+      {
+        query: gql,
+        variables,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.createPost;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export async function updatePost(variables, authToken) {
-	const gql = `
+  const gql = `
 		mutation UpdatePostMutation(
 			$input: postInput 
 			$_id: ObjectID
@@ -64,29 +64,29 @@ export async function updatePost(variables, authToken) {
 			}
 		}
   `;
-	try {
-		const { data } = await axios.post(
-			config.endpoint,
-			{
-				query: gql,
-				variables
-			},
-			{
-				headers: {
-					Authorization: `Bearer ${authToken}`,
-					'Content-Type': 'application/json'
-				}
-			}
-		);
-		return data.data.updatePost;
-	} catch (error) {
-		console.log(error);
-		return null;
-	}
+  try {
+    const { data } = await axios.post(
+      `${config.api}/graphql`,
+      {
+        query: gql,
+        variables,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.updatePost;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export async function getOne(variables, authToken) {
-	const gql = `
+  const gql = `
 		query getPostQuery(
 			$_id: ObjectID
 		){
@@ -110,29 +110,29 @@ export async function getOne(variables, authToken) {
 			}
 		}
   `;
-	try {
-		const { data } = await axios.post(
-			config.endpoint,
-			{
-				query: gql,
-				variables
-			},
-			{
-				headers: {
-					Authorization: `Bearer ${authToken}`,
-					'Content-Type': 'application/json'
-				}
-			}
-		);
-		return data.data.post;
-	} catch (error) {
-		console.log(error);
-		return null;
-	}
+  try {
+    const { data } = await axios.post(
+      `${config.api}/graphql`,
+      {
+        query: gql,
+        variables,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.post;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export async function getList(variables, authToken) {
-	const gql = `
+  const gql = `
 		query GetPostsQuery(
 			$isPrivate: Boolean
 		){
@@ -149,29 +149,29 @@ export async function getList(variables, authToken) {
 			}
 		}
 	`;
-	try {
-		const { data } = await axios.post(
-			config.endpoint,
-			{
-				query: gql,
-				variables
-			},
-			{
-				headers: {
-					Authorization: `Bearer ${authToken}`,
-					'Content-Type': 'application/json'
-				}
-			}
-		);
-		return data.data.posts;
-	} catch (error) {
-		console.log(error);
-		return null;
-	}
+  try {
+    const { data } = await axios.post(
+      `${config.api}/graphql`,
+      {
+        query: gql,
+        variables,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.posts;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export async function getOnePublic(variables) {
-	const gql = `
+  const gql = `
 		query getPostQuery(
 			$_id: ObjectID
 			$uniqid: String
@@ -196,22 +196,22 @@ export async function getOnePublic(variables) {
 			}
 		}
 	`;
-	try {
-		const { data } = await axios.post(
-			config.endpoint,
-			{
-				query: gql,
-				variables
-			},
-			{
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			}
-		);
-		return data.data.post;
-	} catch (error) {
-		console.log(error);
-		return null;
-	}
+  try {
+    const { data } = await axios.post(
+      `${config.api}/graphql`,
+      {
+        query: gql,
+        variables,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.post;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }

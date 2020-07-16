@@ -1,6 +1,7 @@
 import axios from "axios";
 import config from "../config";
 export async function loginRequest(variables) {
+  console.log(config);
   const gql = `
     query LoginQuery($input:loginInput!){
       login(input:$input){
@@ -10,7 +11,7 @@ export async function loginRequest(variables) {
 	`;
   try {
     const { data } = await axios.post(
-      config.endpoint,
+      `${config.api}/graphql`,
       {
         query: gql,
         variables,
@@ -36,10 +37,11 @@ export async function registerUser(variables, authToken) {
 				code
 			}
 		}
-	`;
+  `;
+  console.log(config);
   try {
     const { data } = await axios.post(
-      config.endpoint,
+      `${config.api}/graphql`,
       {
         query: gql,
         variables,

@@ -12,6 +12,7 @@ import {
   Container,
   Image,
 } from "semantic-ui-react";
+import config from "../config";
 import { parseCookies } from "../utils";
 
 export default function Home(props) {
@@ -85,7 +86,7 @@ export default function Home(props) {
                           <Item.Image
                             as="a"
                             size="tiny"
-                            src={`${process.env.API}${post.coverImage}`}
+                            src={`${config.api}${post.coverImage}`}
                           />
 
                           <Item.Content>

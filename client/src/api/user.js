@@ -1,10 +1,10 @@
-import axios from 'axios';
-import config from '../config';
+import axios from "axios";
+import config from "../config";
 export async function getUserLogued(variables, authToken) {
-	if (!authToken) {
-		return null;
-	}
-	const gql = `
+  if (!authToken) {
+    return null;
+  }
+  const gql = `
     query PrivateProfileQuery{
       privateProfile{
         username
@@ -20,32 +20,32 @@ export async function getUserLogued(variables, authToken) {
       }
     }
   `;
-	try {
-		const { data } = await axios.post(
-			config.endpoint,
-			{
-				query: gql,
-				variables
-			},
-			{
-				headers: {
-					Authorization: `Bearer ${authToken}`,
-					'Content-Type': 'application/json'
-				}
-			}
-		);
-		return data.data.privateProfile;
-	} catch (error) {
-		console.log(error);
-		return null;
-	}
+  try {
+    const { data } = await axios.post(
+      `${config.api}/graphql`,
+      {
+        query: gql,
+        variables,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.privateProfile;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export async function updateProfile(variables, authToken) {
-	if (!authToken) {
-		return null;
-	}
-	const gql = `
+  if (!authToken) {
+    return null;
+  }
+  const gql = `
 		mutation UpdateProfileMutation(
 			$input:profileInput!
 		){
@@ -64,23 +64,23 @@ export async function updateProfile(variables, authToken) {
 			}
 		}
   `;
-	try {
-		const { data } = await axios.post(
-			config.endpoint,
-			{
-				query: gql,
-				variables
-			},
-			{
-				headers: {
-					Authorization: `Bearer ${authToken}`,
-					'Content-Type': 'application/json'
-				}
-			}
-		);
-		return data.data.updateProfile;
-	} catch (error) {
-		console.log(error);
-		return null;
-	}
+  try {
+    const { data } = await axios.post(
+      `${config.api}/graphql`,
+      {
+        query: gql,
+        variables,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.updateProfile;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }

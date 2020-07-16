@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node ./src/server.js",
+    "dev": "NODE_ENV=development PORT=3100 node ./src/server.js",
     "build": "next build",
-    "start": "SERVER_API_GQL=http://apiblog.sonnemon.com/graphql BROWSER_API_GQL=http://apiblog.sonnemon.com/graphql API=http://apiblog.sonnemon.com node ./src/server.js"
+    "start": "node ./src/server.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
