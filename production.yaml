@@ -30,6 +30,8 @@ services:
       - db
     ports:
       - 4100:4100
+      volumes:
+        - ./server/public/:/usr/src/app/public/
   db:
     image: mongo
     volumes:
