@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 services:
   frontend:
@@ -18,8 +18,8 @@ services:
       - backend
   backend:
     build:
-     context: .
-     dockerfile: ./server/dockerfiles/production.dockerfile
+      context: .
+      dockerfile: ./server/dockerfiles/production.dockerfile
     environment:
       API_PORT: 4100
       MONGO_HOST: db
@@ -30,9 +30,9 @@ services:
       - db
     ports:
       - 4100:4100
-      volumes:
-        - ./server/public/:/usr/src/app/public/
+    volumes:
+      - ./server/public/:/usr/src/app/public/
   db:
     image: mongo
     volumes:
-      - './data:/data/db'
+      - "./data:/data/db"
