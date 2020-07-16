@@ -8,5 +8,8 @@ console.log(
   process.env.NODE_ENV
 );
 export default {
-  endpoint,
+  endpoint:
+    process.env.NODE_ENV == "production"
+      ? "http://apiblog.sonnemon.com/graphql"
+      : endpoint,
 };
