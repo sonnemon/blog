@@ -12,4 +12,8 @@ export default {
     process.env.NODE_ENV == "production"
       ? "http://apiblog.sonnemon.com/graphql"
       : endpoint,
+  api:
+    process.env.NODE_ENV == "production"
+      ? "http://apiblog.sonnemon.com"
+      : process.env.API,
 };
