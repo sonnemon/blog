@@ -24,16 +24,13 @@ export default function Post(props) {
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.seed} />
         <meta property="og:url" content={`${config.host}/post/${post.url}`} />
-        <meta
-          property="og:image"
-          content={`${config.host}/${post.coverImage}`}
-        />
+        <meta property="og:image" content={`${config.api}${post.coverImage}`} />
 
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.seed} />
         <meta
           name="twitter:image"
-          content={`${config.host}/${post.coverImage}`}
+          content={`${config.api}${post.coverImage}`}
         />
       </Head>
       <Container text>
