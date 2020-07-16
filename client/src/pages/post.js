@@ -87,7 +87,7 @@ export default function Post(props) {
                         target="_blank"
                         href={`https://www.linkedin.com/shareArticle?mini=true&url=${config.host}/post/${post.url}`}
                       >
-                        <Icon bordered color="teal" name="twitter" />
+                        <Icon bordered color="teal" name="linkedin" />
                       </a>
                     </div>
                   </Grid.Column>

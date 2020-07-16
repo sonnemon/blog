@@ -158,6 +158,6 @@ function initialState(defaultValues) {
     coverImage:
       "coverImage" in defaultValues
         ? `${defaultValues.coverImage}`
-        : "images/posts/display/default.png",
+        : "/images/posts/display/default.png",
   };
 }
